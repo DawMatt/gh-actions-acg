@@ -16,6 +16,7 @@ npm init
 
 # add mocha for testing
 npm install mocha --save-dev
+```
 
 # create index.js and paste the following
 # creates a server object in a variable named server
@@ -23,6 +24,8 @@ npm install mocha --save-dev
 # outputs a response to the browser
 # checks for the environment variable 'process.env.PORT`, or 5000 if not available
 # then just output this string to the console
+
+```js
 const http = require('http');
 
 const server = http.createServer((req, res) => {
@@ -38,9 +41,9 @@ server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 ## Add simple math test
 
-```bash
-
 # create a file named test.js with the following contents
+
+```js
 const assert = require('assert');
 describe('Simple Math Test', () => {
  it('should return 2', () => {
