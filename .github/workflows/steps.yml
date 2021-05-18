@@ -20,6 +20,8 @@ jobs:
     - name: My third step
       uses: actions/checkout@v1
       with:
+        # Broken:
+        # Warning: Unexpected input(s) 'node-version', 'registry-url', valid inputs are ['repository', 'ref', 'token', 'clean', 'submodules', 'lfs', 'fetch-depth', 'path']
         node-version: 12
         registry-url: https://npm.pkg.github.com/ # if your publishing your package to npm or github package repo
     - name: my fourth step
