@@ -1,0 +1,44 @@
+**Get the AZURE_SUBSCRIPTION_ID**
+
+```bash
+# install azure cli on code server
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+sudo sh -c 'echo -e "[azure-cli]
+name=Azure CLI
+baseurl=https://packages.microsoft.com/yumrepos/azure-cli
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
+
+sudo yum install azure-cli
+```
+
+or on windows
+
+```powershell
+# If have chocolatey package manager installed. Scoop is another alternative.
+chocolatey install azure-cli
+
+# Microsoft's winget package manager should also be considered once out of preview
+```
+
+
+```
+# login to azure
+az login
+
+# grab just the ID in the output of az login command
+```
+
+
+**Get AZURE_CREDENTIALS**
+
+```bash
+az ad sp create-for-rbac --name "GitHub-Actions" \
+--role contributor \
+--scopes /subscriptions/{subscription-id} \
+--sdk-auth
+
+# copy the whole thing (including curly braces)
+```
